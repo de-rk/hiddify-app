@@ -33,14 +33,6 @@ class GamingModePage extends HookConsumerWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.vpn_lock_rounded),
-            title: Text(t.pages.settings.inbound.serviceMode),
-            trailing: Text(
-              t.pages.settings.inbound.serviceModes.tun,
-              style: TextStyle(color: Theme.of(context).colorScheme.secondary),
-            ),
-          ),
-          ListTile(
             leading: const Icon(Icons.trip_origin_rounded),
             title: Text(t.pages.settings.inbound.tunImplementation),
             trailing: Text(

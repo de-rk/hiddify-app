@@ -8,7 +8,6 @@ class GamingModeNotifier extends StateNotifier<bool> {
   final Ref _ref;
 
   Future<void> enable() async {
-    await _ref.read(ConfigOptions.serviceMode.notifier).update(ServiceMode.tun);
     await _ref.read(ConfigOptions.tunImplementation.notifier).update(TunImplementation.gvisor);
     await _ref.read(ConfigOptions.ipv6Mode.notifier).update(IPv6Mode.disable);
     await _ref.read(ConfigOptions.balancerStrategy.notifier).update(BalancerStrategy.stickySession);
@@ -20,7 +19,6 @@ class GamingModeNotifier extends StateNotifier<bool> {
   }
 
   Future<void> disable() async {
-    await _ref.read(ConfigOptions.serviceMode.notifier).reset();
     await _ref.read(ConfigOptions.balancerStrategy.notifier).reset();
     await _ref.read(ConfigOptions.urlTestInterval.notifier).reset();
     await _ref.read(ConfigOptions.bypassLan.notifier).reset();
