@@ -2,6 +2,12 @@ name: Build macOS Dev
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
 
 env:
   FLUTTER_VERSION: '3.38.5'
@@ -26,18 +32,17 @@ jobs:
       - name: Download core libs
         run: make macos-libs
 
-      - name: Prepare
+      - name: Prepare (pub get + codegen + translations)
         run: make common-prepare
 
       - name: Build macOS
         run: flutter build macos --release --dart-define sentry_dsn=
 
-      - name: Package app
+      - name: Package app (ditto preserves symlinks)
         run: |
           APP_PATH=$(find build/macos/Build/Products/Release -name "*.app" | head -1)
-          echo "Found app: $APP_PATH"
-          cd "$(dirname "$APP_PATH")"
-          zip -r "$GITHUB_WORKSPACE/Hiddify-Dev-macOS.zip" "$(basename "$APP_PATH")"
+          echo "Packaging: $APP_PATH"
+          ditto -c -k --keepParent "$APP_PATH" Hiddify-Dev-macOS.zip
 
       - name: Upload artifact
         uses: actions/upload-artifact@v6
