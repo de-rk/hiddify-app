@@ -67,8 +67,10 @@ class AppDirectories extends _$AppDirectories with InfraLogger {
     if (kIsWeb) {
       return Directory(".");
     }
-    if (PlatformUtils.isIOS || PlatformUtils.isMacOS) {
+    if (PlatformUtils.isIOS) {
       return await getLibraryDirectory();
+    } else if (PlatformUtils.isMacOS) {
+      return await getApplicationSupportDirectory();
     } else if (PlatformUtils.isWindows &&
         Environment.isPortable &&
         await checkDirectoryAccess(getPortableDirectory())) {
