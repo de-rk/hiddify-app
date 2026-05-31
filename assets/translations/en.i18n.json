@@ -475,6 +475,20 @@
           "size": "Noise size",
           "delay": "Noise delay"
         }
+      },
+      "mux": {
+        "title": "Multiplexing (Mux)",
+        "enable": "Enable multiplexing",
+        "enableMsg": "Reuse connections to reduce handshake overhead",
+        "padding": "Padding",
+        "protocol": "Protocol",
+        "maxStreams": "Max streams"
+      },
+      "gamingMode": {
+        "title": "Gaming Mode",
+        "enable": "Enable gaming mode",
+        "enableMsg": "One-tap preset for lowest latency and stable sessions",
+        "appliedSettings": "Applied settings"
       }
     }
   },

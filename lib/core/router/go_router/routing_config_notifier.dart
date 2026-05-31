@@ -16,8 +16,10 @@ import 'package:hiddify/features/profile/notifier/active_profile_notifier.dart';
 import 'package:hiddify/features/profile/overview/profiles_page.dart';
 import 'package:hiddify/features/proxy/overview/proxies_overview_page.dart';
 import 'package:hiddify/features/settings/overview/sections/dns_options_page.dart';
+import 'package:hiddify/features/settings/overview/sections/gaming_mode_page.dart';
 import 'package:hiddify/features/settings/overview/sections/general_page.dart';
 import 'package:hiddify/features/settings/overview/sections/inbound_options_page.dart';
+import 'package:hiddify/features/settings/overview/sections/mux_options_page.dart';
 import 'package:hiddify/features/settings/overview/sections/route_options_page.dart';
 import 'package:hiddify/features/settings/overview/sections/tls_tricks_page.dart';
 import 'package:hiddify/features/settings/overview/sections/warp_options_page.dart';
@@ -199,6 +201,18 @@ class RoutingConfigNotifier extends _$RoutingConfigNotifier {
                       path: '/tls-tricks',
                       pageBuilder: (_, state) =>
                           customTransition(TransitionType.slide, state.pageKey, const TlsTricksPage()),
+                    ),
+                    GoRoute(
+                      name: 'muxOptions',
+                      path: '/mux-options',
+                      pageBuilder: (_, state) =>
+                          customTransition(TransitionType.slide, state.pageKey, const MuxOptionsPage()),
+                    ),
+                    GoRoute(
+                      name: 'gamingMode',
+                      path: '/gaming-mode',
+                      pageBuilder: (_, state) =>
+                          customTransition(TransitionType.slide, state.pageKey, const GamingModePage()),
                     ),
                     GoRoute(
                       name: 'warpOptions',

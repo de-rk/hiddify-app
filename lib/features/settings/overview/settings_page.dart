@@ -167,6 +167,16 @@ class SettingsPage extends HookConsumerWidget {
             namedLocation: context.namedLocation('tlsTricks'),
           ),
           SettingsSection(
+            title: t.pages.settings.mux.title,
+            icon: Icons.merge_type_rounded,
+            namedLocation: context.namedLocation('muxOptions'),
+          ),
+          SettingsSection(
+            title: t.pages.settings.gamingMode.title,
+            icon: Icons.sports_esports_rounded,
+            namedLocation: context.namedLocation('gamingMode'),
+          ),
+          SettingsSection(
             title: t.pages.settings.warp.title,
             icon: Icons.cloud_rounded,
             namedLocation: context.namedLocation('warpOptions'),
